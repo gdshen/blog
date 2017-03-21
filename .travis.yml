@@ -1,0 +1,22 @@
+language: node_js
+branches:
+  only:
+  - master
+before_install:
+- npm install -g hexo
+- npm install
+
+before_script:
+- git config --global user.name 'gdshen'
+- git config --global user.email 'gdshen95@gmail.com'
+- sed -i'' "s~git@github.com:gdshen/blog.git~https://${GH_TOKEN}:x-oauth-basic@github.com/gdshen/blog.git~" _config.yml
+
+install:
+- hexo generate
+
+script:
+- hexo deploy --silent
+
+env:
+  global:
+    secure: endvtnL+3Dj186wVpWKzNlA4mDvrKDtCUy3ZK/6pbaqkJ6pKF5yyAnl7UkuxSwRjjRd/RFfFSDIxCwtazF8BN3s15PUwwx8cbiRUHZTRmZu6sypW17M1pdxpEf/73g3OK7OaDnDbB3NjJXUC0E7rdej+hE6VCeGDBEEGVBtfACuzUzZKUHL2FLee4qai7EO1igypKSDWoR8BpCwYqkcjpowR4c3j8VyFEpi4Fev3R27IZDMmsSsGKXkUCHLX711+aIvVToiftYySe0NYW+c6Pw4seCDYj3pUdQFoj3Ujw6a0Y+yOxeW9Twcs5Or5248YsGjPe5XfZ8rKDSEzK+dlECuM2dGmn9QE1hOZ01noN8EqRNBQIft3k/JfZsf7T/uPRbjIpCAoDJjYG12QYaNlufypycv3gYkBacKY2Z4xFBchSkWWCi9fnsenHB4nJCrBU++qbtPUOQzGvbqmy+K/i8PPzKHgPtD34SwRl4rsbf0SWpHT2XHCBe9zUCUxUFsGGb+tDLk47pHhr/JsCy/VIJOA2rDBCmdtVxzxJafWZSCTFUTpKhUv1baQpQnRJXLzVfZy3BrsToBAFqpPCUBWdBDwMAAQ7zec7vfjHWoHScBfih0Pb1GQslY7KgtDVRj1Upoj1tXNY6dhF0cug1rdsGhIOAWm9zir8CyClLZV5SQ=
