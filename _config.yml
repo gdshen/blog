@@ -83,7 +83,6 @@ theme_config:
     cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML
   links:
     Liu Jiang: https://liujiangsite.wordpress.com
-    Google: http://www.google.com
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
