@@ -48,5 +48,3 @@ def run(s):
 test math
 
 $$a^2 + b^2 = c^2$$
-
-test travis-ci
