@@ -79,7 +79,7 @@ theme_config:
   use_motion: false
   mathjax:
     enable: true
-    per_page: true
+    per_page: false
     cdn: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML
   links:
     Liu Jiang: https://liujiangsite.wordpress.com
