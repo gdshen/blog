@@ -13,11 +13,7 @@ tags:
   - column vector
 - matrix
 
-$$\begin{bmatrix}
-1 & 0 & 1 \\\
-0 & 1 & 0 \\\
-1 & 1 & 0 \\\
-\end{bmatrix}$$
+$$\begin{bmatrix}1 & 0 & 1 \\\ 0 & 1 & 0 \\\ 1 & 1 & 0 \\\ \end{bmatrix}$$
 
 ## Probability and Statistics
 
