@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Gdshen&#39; Blog</title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  
+  <link href="https://gdshen.github.io/"/>
+  <updated>2017-03-27T14:56:28.466Z</updated>
+  <id>https://gdshen.github.io/</id>
+  
+  <author>
+    <name>Guodong Shen</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>basic math for deep learning</title>
+    <link href="https://gdshen.github.io/2017/03/22/basic-math-for-deep-learning/"/>
+    <id>https://gdshen.github.io/2017/03/22/basic-math-for-deep-learning/</id>
+    <published>2017-03-22T18:53:27.000Z</published>
+    <updated>2017-03-27T14:56:28.466Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Calculus"><a href="#Calculus" class="headerlink" title="Calculus"></a>Calculus</h2><h2 id="Linear-Algebra"><a href="#Linear-Algebra" class="headerlink" title="Linear Algebra"></a>Linear Algebra</h2><ul>
+<li>scalar</li>
+<li>vector<ul>
+<li>row vector</li>
+<li>column vector</li>
+</ul>
+</li>
+<li>matrix</li>
+</ul>
+<script type="math/tex; mode=display">\begin{bmatrix}1 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 1 & 0 \\ \end{bmatrix}</script><h2 id="Probability-and-Statistics"><a href="#Probability-and-Statistics" class="headerlink" title="Probability and Statistics"></a>Probability and Statistics</h2><h2 id="Information-theory"><a href="#Information-theory" class="headerlink" title="Information theory"></a>Information theory</h2><h3 id="KL-divergence-or-relative-entropy"><a href="#KL-divergence-or-relative-entropy" class="headerlink" title="KL-divergence(or relative entropy)"></a>KL-divergence(or relative entropy)</h3><blockquote>
+<p>Kullback-Leibler divergence, a.k.a. relative entropy</p>
+</blockquote>
+<p>For discrete probability distribution $P$ and $Q$, the Kullback-Leibler divergence from $Q$ to $p$ is defined to be</p>
+<script type="math/tex; mode=display">D_{KL}(P \parallel Q) = \sum_{i}P(i)\log\frac{P(i)}{Q(i)}</script><p>For distributions $P$ and $Q$ of a continuous random variable, the Kullback-Leibler divergence is defined to be the integral:</p>
+<script type="math/tex; mode=display">D_{KL}(P\parallel Q) = \int_{-\infty}^{\infty}p(x)\log\frac{p(x)}{q(x)}dx</script><p>The above form of KL-divergence can also be called as entropy of $P$ relative to $Q$.</p>
+<h3 id="Cross-entropy"><a href="#Cross-entropy" class="headerlink" title="Cross entropy"></a>Cross entropy</h3><p>The cross entropy for distribution $p$ and $q$ over a given set is defined as follows</p>
+<script type="math/tex; mode=display">H(p, q) = E_q[-\log q] = H(p) + D_{KL}(p \parallel q)</script><p>Note that often we denote $q$ as the true distribution and $p$ as an “unnatural” probability distribution.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Calculus&quot;&gt;&lt;a href=&quot;#Calculus&quot; class=&quot;headerlink&quot; title=&quot;Calculus&quot;&gt;&lt;/a&gt;Calculus&lt;/h2&gt;&lt;h2 id=&quot;Linear-Algebra&quot;&gt;&lt;a href=&quot;#Linear-Algebra&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>make-static-blog-on-github-pages-from-scratch</title>
+    <link href="https://gdshen.github.io/2017/03/22/make-static-blog-on-github-pages-from-scratch/"/>
+    <id>https://gdshen.github.io/2017/03/22/make-static-blog-on-github-pages-from-scratch/</id>
+    <published>2017-03-22T14:35:04.000Z</published>
+    <updated>2017-03-27T14:56:28.466Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Procedure"><a href="#Procedure" class="headerlink" title="Procedure"></a>Procedure</h2><ol>
+<li>initiate a repo in github</li>
+<li>hexo init</li>
+<li>install dependency</li>
+<li>set travis to auto deploy</li>
+</ol>
+<a id="more"></a>
+<h2 id="install-hexo"><a href="#install-hexo" class="headerlink" title="install hexo"></a>install hexo</h2><p>To install hexo, first we should install nodejs. On macOS, we could install npm with brew <code>brew install node</code><br>then we should install hexo.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli</div><div class="line">hexo init blog</div><div class="line"><span class="built_in">cd</span> blog</div><div class="line">npm install</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+<p>choose a theme, here I recommend you take a look at hexo-next-theme, override necessary configuration in _config.yml.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git submodule add https://github.com/iissnan/hexo-theme-next.git themes/next</div></pre></td></tr></table></figure></p>
+<p>Change theme config</p>
+<h2 id="Push-to-GitHub"><a href="#Push-to-GitHub" class="headerlink" title="Push to GitHub"></a>Push to GitHub</h2><ol>
+<li>Create a github repo</li>
+<li>git add origin <code>git remote add origin THE_URL_OF_GITHUB_REPO</code></li>
+<li>git push <code>git push -u origin master</code></li>
+</ol>
+<h2 id="Using-travis-to-auto-deploy"><a href="#Using-travis-to-auto-deploy" class="headerlink" title="Using travis to auto deploy"></a>Using travis to auto deploy</h2><ol>
+<li>create a github token</li>
+<li>encrypt your token in travis</li>
+<li>write your own .travis.yml</li>
+</ol>
+<h2 id="solve-conflict-of-render-engine-between-hexo-and-mathjax"><a href="#solve-conflict-of-render-engine-between-hexo-and-mathjax" class="headerlink" title="solve conflict of render engine between hexo and mathjax"></a>solve conflict of render engine between hexo and mathjax</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm uninstall hexo-renderer-marked --save</div><div class="line">npm install hexo-renderer-kramed --save</div></pre></td></tr></table></figure>
+<h2 id="create-a-new-post"><a href="#create-a-new-post" class="headerlink" title="create a new post"></a>create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">hexo create [post] post</div><div class="line">hexo generate</div><div class="line">hexo deploy</div><div class="line">hexo server <span class="comment"># See the render result in localhost</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Procedure&quot;&gt;&lt;a href=&quot;#Procedure&quot; class=&quot;headerlink&quot; title=&quot;Procedure&quot;&gt;&lt;/a&gt;Procedure&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;initiate a repo in github&lt;/li&gt;
+&lt;li&gt;hexo init&lt;/li&gt;
+&lt;li&gt;install dependency&lt;/li&gt;
+&lt;li&gt;set travis to auto deploy&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
